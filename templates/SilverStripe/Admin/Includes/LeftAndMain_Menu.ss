@@ -26,7 +26,7 @@
 					data-expanded-title="<%t SilverStripe\\Admin\\LeftAndMain.CollapsePanel "Collapse panel" %>"
 					data-collapsed-label="&raquo;"
 					data-collapsed-title="<%t SilverStripe\\Admin\\LeftAndMain.ExpandPanel "Expand panel" %>"
-				>&laquo;</button>
+				><span class="cms-panel-toggle__icon cms-panel-toggle__icon--expanded" aria-hidden="true">&laquo;</span><span class="cms-panel-toggle__icon cms-panel-toggle__icon--collapsed" aria-hidden="true">&raquo;</span></button>
 			<% end_if %>
 		<% end_if %>
 	</div>

@@ -1,0 +1,40 @@
+<div class="cms-help__toggle">
+    <button class="cms-help__menu" type="button" title="<%t SilverStripe\Admin\LeftAndMain.HelpMenu "Help menu" %>" aria-label="<%t SilverStripe\Admin\LeftAndMain.HelpMenu "Help menu" %>" aria-expanded="false">
+        <span class="cms-help__logo font-icon-silverstripe-cms" aria-hidden="true"></span>
+        <span class="cms-help__toggle-title">
+            $ApplicationName
+        </span>
+        <span class="cms-help__badge badge badge-info text-bg-info">
+                <% if $CMSVersionNumber %>
+                    <span class="cms-sitename__version" title="$ApplicationName (<%t SilverStripe\Admin\LeftAndMain.Version "Version" %> - $CMSVersion)">$CMSVersionNumber</span>
+                <% end_if %>
+            </span>
+            <span class="cms-help__caret font-icon-caret-up-two" aria-hidden="true"></span>
+    </button>
+    <% if $HelpLinks %>
+        <div class="cms-help__links">
+            <% loop $HelpLinks %>
+                <% if $URL %>
+                    <a class="cms-help__link" href="$URL" target="_blank" rel="noopener noreferrer">$Title</a>
+                <% end_if %>
+            <% end_loop %>
+        </div>
+    <% end_if %>
+</div>
+
+<div class="sticky-toggle">
+    <button class="sticky-toggle__button" type="button" title="<%t SilverStripe\Admin\LeftAndMain.MenuToggleStickyNav "Sticky nav" %>"><%t SilverStripe\Admin\LeftAndMain.MenuToggleStickyNav "Sticky nav" %></button>
+    <span class="sticky-toggle__status sticky-status-indicator"><%t SilverStripe\Admin\LeftAndMain.MenuToggleAuto "Auto" %></span>
+</div>
+
+<button
+    class="cms-panel-toggle__button"
+    title="<%t SilverStripe\\Admin\\LeftAndMain.CollapsePanel "Collapse panel" %>"
+    data-bs-toggle="tooltip"
+    aria-expanded="true"
+    aria-controls="cms-menu"
+    data-expanded-label="&laquo;"
+    data-expanded-title="<%t SilverStripe\\Admin\\LeftAndMain.CollapsePanel "Collapse panel" %>"
+    data-collapsed-label="&raquo;"
+    data-collapsed-title="<%t SilverStripe\\Admin\\LeftAndMain.ExpandPanel "Expand panel" %>"
+><span class="cms-panel-toggle__icon cms-panel-toggle__icon--expanded" aria-hidden="true">&laquo;</span><span class="cms-panel-toggle__icon cms-panel-toggle__icon--collapsed" aria-hidden="true">&raquo;</span></button>

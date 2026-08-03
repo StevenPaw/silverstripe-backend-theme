@@ -91,17 +91,18 @@
     }, 50);
   });
   
+  // Which icon is shown is handled purely by CSS off the COLLAPSED_CLASS / cms-pre-collapsed
+  // classes (see _custom-menu-collapse.scss), so it's correct from first paint. This only
+  // needs to sync the non-visual bits (title tooltip, aria-expanded) once JS is ready.
   function updateButtonState($menu) {
     const $button = $(BUTTON_SELECTOR);
     const isCollapsed = $menu.hasClass(COLLAPSED_CLASS);
-    
+
     if ($button.length) {
       if (isCollapsed) {
-        $button.html('&raquo;');
         $button.attr('title', $button.data('collapsed-title') || 'Expand panel');
         $button.attr('aria-expanded', 'false');
       } else {
-        $button.html('&laquo;');
         $button.attr('title', $button.data('expanded-title') || 'Collapse panel');
         $button.attr('aria-expanded', 'true');
       }

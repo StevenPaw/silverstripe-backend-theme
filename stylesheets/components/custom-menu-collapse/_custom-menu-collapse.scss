@@ -55,7 +55,6 @@
     }
 
     .branded-menu__list-item {
-        background-color: red !important;
         &.branded-menu__list-item--children {
             .menu__icon--chevron {
                 right: 0.5rem;
@@ -69,6 +68,30 @@
 html.cms-pre-collapsed #cms-menu {
     width: 75px !important;
     overflow: hidden;
+}
+
+// The toggle button renders both arrow icons (see LeftAndMain_MenuToggle.ss override) and
+// CSS decides which one is visible. The template always used to render "«" (expanded state)
+// server-side as plain text, with menu-state.js correcting it once jQuery has loaded and
+// $(document).ready fires — on a full page reload that can take ~1s, so the arrow visibly
+// flipped direction after the page was already visible. Gating visibility on the same
+// classes that control the menu width (including the synchronous .cms-pre-collapsed class
+// above) means the correct icon shows from first paint.
+.cms-panel-toggle__button {
+    .cms-panel-toggle__icon--collapsed {
+        display: none;
+    }
+}
+
+#cms-menu.custom-collapsed .cms-panel-toggle__button,
+html.cms-pre-collapsed #cms-menu .cms-panel-toggle__button {
+    .cms-panel-toggle__icon--expanded {
+        display: none;
+    }
+
+    .cms-panel-toggle__icon--collapsed {
+        display: inline;
+    }
 }
 
 // Smooth transitions
